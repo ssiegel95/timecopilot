@@ -77,7 +77,7 @@ description = "The GenAI Forecasting Agent · LLMs × Time Series Foundation Mod
 license = "MIT"
 name = "timecopilot"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 version = "0.0.22"
 
 [project.scripts]
