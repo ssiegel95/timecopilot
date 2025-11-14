@@ -130,3 +130,9 @@ select = ["B", "E", "F", "I", "SIM", "UP"]
 [tool.ruff.lint.isort]
 known-local-folder = ["timecopilot"]
 no-lines-before = ["local-folder"]
+
+[project.optional-dependencies]
+
+litellm = [
+   "pydantic-ai-litellm"
+]
