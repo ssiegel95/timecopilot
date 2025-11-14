@@ -48,6 +48,7 @@ from .models.stats import (
     ZeroModel,
 )
 from .utils.experiment_handler import ExperimentDataset, ExperimentDatasetParser
+from .litellm_wrapper import create_litellm_model
 
 DEFAULT_MODELS: list[Forecaster] = [
     ADIDA(),
@@ -516,7 +517,7 @@ class TimeCopilot:
             deps_type=ExperimentDataset,
             output_type=ForecastAgentOutput,
             system_prompt=self.system_prompt,
-            model=self.llm,
+            model=create_litellm_model(self.llm),
             **kwargs,
         )
 
@@ -567,7 +568,7 @@ class TimeCopilot:
             deps_type=ExperimentDataset,
             output_type=str,
             system_prompt=self.query_system_prompt,
-            model=self.llm,
+            model=create_litellm_model(self.llm),
             **kwargs,
         )
 
@@ -1117,7 +1118,7 @@ class TimeCopilot:
         """
 
         decision_agent = Agent(
-            model=self.llm,
+            model=create_litellm_model(self.llm),
             system_prompt=(
                 "You are a decision-making assistant. Respond with only "
                 "True or False based on the user's intent."
